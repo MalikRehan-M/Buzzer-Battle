@@ -1,4 +1,4 @@
-import React from "react";
+
 import Singleplayer from "../pages/singleplayer";
 import { Route, Routes } from "react-router-dom";
 import Multiplayer from "../pages/multiplayer";
