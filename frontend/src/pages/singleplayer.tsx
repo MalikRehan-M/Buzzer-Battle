@@ -1,7 +1,7 @@
 import React from "react";
 
-const singleplayer = () => {
+const Singleplayer = () => {
   return <div>singleplayer</div>;
 };
 
-export default singleplayer;
+export default Singleplayer;
