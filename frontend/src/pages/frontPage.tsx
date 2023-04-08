@@ -20,8 +20,7 @@ const FrontPage: React.FC = () => {
 
     return (
         <div className="front-page-container"> {/* Use className to apply CSS class */}
-            <h1 className="front-page-title">Home Page</h1>
-            <br />
+         
             <div className="bar">
                 <span className="bar_content">
                     Welcome to the quiz game
