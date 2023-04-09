@@ -1,149 +1,150 @@
 .front-page-container {
-    margin: auto;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-image: url('https://media0.giphy.com/media/l3q2RgN7WUjeUUXm0/giphy.gif');
-    background-size: cover;
+  margin: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("https://media0.giphy.com/media/l3q2RgN7WUjeUUXm0/giphy.gif");
   background-position: center;
   height: 100%;
-  position:absolute;
+  position: absolute;
 }
 
 .front-page-title {
-    font-size: 22px;
-    font-weight: bold;
-    text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
 }
 
 .button-container {
-    display: flex;
-    align-items: center;
-    border: 1px solid black;
-    padding: 30px;
-    width: 70%;
-    height: 500px;
-    background-color: #f9f9f9;
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  padding: 30px;
+  width: 85%;
+  height: 85%;
+  background-color: #f9f9f9;
+  background-image: url("https://img.freepik.com/free-vector/halftone-background-with-circles_23-2148907689.jpg?w=1380&t=st=1681003461~exp=1681004061~hmac=435200dc407117a95c1ca3be2ad9494db8804124fd35ea1ec94cbba796874069");
+  background-repeat:no-repeat;
+  background-position:inherit;
+  background-size: cover;
+  border-radius: 20px;
 }
-
 
 .button-wrapper {
-    display: flex;
-    align-items: center;
-   
-    width: 40%;
-    height: 100%;
-    margin: auto;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 2.2rem;
-    
+  display: flex;
+  align-items: center;
+
+  width: 40%;
+  height: 100%;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2.2rem;
 }
 
-
 .custom-button {
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 0.7rem;
-    width: 15rem;
-    transition: transform 0.3s ease-in-out;
-    background-color: #5E0404;
-    color: white;
- 
-    /* Add a transition property for smooth animation */
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 0.7rem;
+  width: 15rem;
+  transition: transform 0.3s ease-in-out;
+  background-color: #5e0404;
+  color: white;
+
+  /* Add a transition property for smooth animation */
 }
 
 .custom-button:hover {
-    transform: scale(1.25);
-    /* Add the animate.css class to apply the animation on hover */
-    animation: animated infinite pulse;
-    /* Add the animate.css animation class to the hover state */
+  transform: scale(1.25);
+  /* Add the animate.css class to apply the animation on hover */
+  animation: animated infinite pulse;
+  /* Add the animate.css animation class to the hover state */
 }
 
 .dropdown {
-    /* position: absolute; */
-    /* Set the dropdown to absolute position */
-    top: 100%;
-    /* Position the dropdown below the button */
-    left: 0;
-    /* Align the dropdown to the left of the button */
-    background-color: #f9f9f9;
-    /* Add desired background color */
-    border: 1px solid #ccc;
-    /* Add desired border styles */
-    padding: 8px;
-    /* Add desired padding */
-    width: 150px;
-    /* Add desired width */
+  /* position: absolute; */
+  /* Set the dropdown to absolute position */
+  top: 100%;
+  /* Position the dropdown below the button */
+  left: 0;
+  /* Align the dropdown to the left of the button */
+  background-color: #f9f9f9;
+  /* Add desired background color */
+  border: 1px solid #ccc;
+  /* Add desired border styles */
+  padding: 8px;
+  /* Add desired padding */
+  width: 150px;
+  /* Add desired width */
 }
 
 ul {
-    list-style-type: none;
-    /* Remove bullet points from list items */
-    padding: 0;
-    margin: 0;
+  list-style-type: none;
+  /* Remove bullet points from list items */
+  padding: 0;
+  margin: 0;
 }
 
 li {
-    cursor: pointer;
-    /* Add pointer cursor on list items for hover effect */
-    padding: 8px;
-    /* Add desired styles for list items */
+  cursor: pointer;
+  /* Add pointer cursor on list items for hover effect */
+  padding: 8px;
+  /* Add desired styles for list items */
 }
 
 li:hover {
-    background-color: #ccc;
-    /* Add desired background color on list item hover */
+  background-color: #ccc;
+  /* Add desired background color on list item hover */
 }
-
-
 
 @import url("https://fonts.googleapis.com/css?family=Gelasio&display=swap");
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body,
 html {
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 .bar {
-    position: relative;
-    top: 0;
-    left: 0;
+  position: relative;
+  top: 0;
+  left: 0;
 
-    width: 70%; /*Update width to 70% */
-    padding: 25px 0;
+  width: 70%; /*Update width to 70% */
+  padding: 25px 0;
 
-   
-    color: white;
+  color: white;
 
-    font-family: Gelasio;
-    font-size: 30px;
+  font-family: Gelasio;
+  font-size: 30px;
 }
 
 .bar_content {
-    display: block;
-    /* Important to give the content a width */
+    font-style: italic;
+    font-size:larger;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+  display: block;
+  /* Important to give the content a width */
 
-    /* width: 70%; Update width to 70% */
-    transform: translateX(100%);
-    /* Animation start out of the screen */
+  /* width: 70%; Update width to 70% */
+  transform: translateX(100%);
+  /* Animation start out of the screen */
 
-    /* Add the animation */
-    animation: move 15s linear infinite /* infinite make repeat the animation indefinitely */;
+  /* Add the animation */
+  animation: move 15s linear infinite
+    /* infinite make repeat the animation indefinitely */;
 }
 
 /* Create the animation */
 @keyframes move {
-    to {
-        transform: translateX(-100%);
-    }
+  to {
+    transform: translateX(-100%);
+  }
 }
-
 
 /* <iframe src="https://giphy.com/embed/U3qYN8S0j3bpK" width="340" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/stars-U3qYN8S0j3bpK">via GIPHY</a></p> */
