@@ -119,17 +119,20 @@ const Multiplayer = () => {
           >
             Team Blue
           </button>
-          <br />
           {users.left.map((i) => {
             console.log(i);
             return (
-              <Avatar
-                name={i.name}
-                size="150"
-                color="#00CED1"
-                round="15px"
-                style={{ transform: "skew(-8deg)" }}
-              />
+              <div>
+                <br />
+
+                <Avatar
+                  name={i.name}
+                  size="150"
+                  color="#00CED1"
+                  round="15px"
+                  style={{ transform: "skew(-8deg)" }}
+                />
+              </div>
             );
           })}
         </div>
@@ -213,17 +216,20 @@ const Multiplayer = () => {
           >
             Team Red
           </button>
-          <br />
+
           {users.right.map((i) => {
             console.log(i);
             return (
-              <Avatar
-                name={i.name}
-                size="150"
-                color="#ff6600"
-                round="15px"
-                style={{ transform: "skew(-8deg)" }}
-              />
+              <div>
+                <br />
+                <Avatar
+                  name={i.name}
+                  size="150"
+                  color="#ff6600"
+                  round="15px"
+                  style={{ transform: "skew(-8deg)" }}
+                />
+              </div>
             );
           })}
         </div>
