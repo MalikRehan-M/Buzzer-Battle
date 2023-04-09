@@ -1,10 +1,19 @@
 import React, { useState } from "react";
 import "./frontPage.css"; // import the CSS file
 import "animate.css";
+import { useNavigate } from "react-router-dom";
 
 const FrontPage: React.FC = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const navigate = useNavigate();
 
+  
+  function handleMulti() {
+    navigate("/multiplayer");
+  }
+  function handleSingle() {
+    navigate("/singleplayer");
+  }
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
   };
@@ -21,12 +30,12 @@ const FrontPage: React.FC = () => {
       {" "}
       {/* Use className to apply CSS class */}
       <div className="bar">
-        <span className="bar_content">Welcome to the quiz game</span>
+        <span className="bar_content">Welcome to the Buzzer Battle</span>
       </div>
       <div className="button-container">
         <div className="button-wrapper">
-          <button className="custom-button ">Single Player</button>
-          <button className="custom-button">Multi Player</button>
+          <button onClick={handleSingle} className="custom-button ">Single Player</button>
+          <button onClick={handleMulti} className="custom-button">Multi Player</button>
         </div>
         <div className="button-wrapper">
           <button className="custom-button">Number of players</button>
