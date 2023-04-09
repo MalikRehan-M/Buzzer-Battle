@@ -5,27 +5,51 @@ const Singleplayer = () => {
   const [score, setScore] = useState(0);
 
   return (
-    <div style={{ padding: "25px", backgroundColor: "#f2e3c6" }}>
-      <h1 style={{ textDecoration: "underline" }}>Single Player</h1>
+    <div
+      style={{ padding: "25px", backgroundImage: "url('./background.png')" }}
+      className="w-screen h-screen bg-no-repeat bg-cover"
+    >
+      <h1
+        style={{
+          fontSize: "45px",
+          textDecoration: "underline",
+          color: "whitesmoke",
+          fontWeight: "bolder",
+          textAlign: "center",
+        }}
+      >
+        Single Player
+      </h1>
       <div
         style={{
           display: "grid",
+          marginTop: "7%",
           justifyContent: "center",
           gridTemplateColumns: "repeat(3,1fr)",
-          height: "80vh",
         }}
       >
         {/* ---------------- UserInfo --------------- */}
         <div
           style={{
-            // border: "1px solid black",
-            padding: "20px",
+            padding: "40px",
             margin: "10px",
             width: "70%",
             textAlign: "left",
+            backgroundColor: "yellow",
+            color: "black",
+            fontWeight: "bold",
           }}
         >
-          <h2 style={{ textDecoration: "underline" }}>User-Info</h2>
+          <h2
+            style={{
+              textDecoration: "underline",
+              fontSize: "32px",
+              marginBottom: "20px",
+              textAlign: "center",
+            }}
+          >
+            User-Info
+          </h2>
           <br />
           <h3>Shivam Kumar</h3>
           <h3>Level: {level}</h3>
@@ -35,22 +59,31 @@ const Singleplayer = () => {
         {/* ------------------- Quiz Question ------------- */}
         <div
           style={{
-            // border: "1px solid black",
-            padding: "20px",
+            padding: "40px",
             margin: "10px",
             width: "90%",
+            backgroundColor: "red",
+            color: "whitesmoke",
+            fontWeight: "bold",
+            textAlign: "center",
           }}
         >
-          <h2 style={{ textDecoration: "underline" }}>Quiz Question</h2>
+          <h2 style={{ textDecoration: "underline", fontSize: "32px" }}>
+            Quiz Question
+          </h2>
           <br />
-          <h3>1. Which is used for creating frontend application.</h3>
+          <h3 style={{ margin: "25px 5px", fontSize: "25px" }}>
+            Q. Which is used for creating frontend application.
+          </h3>
           <div style={{ display: "flex", justifyContent: "space-around" }}>
             <button
               style={{
                 padding: "5px 10px",
-                border: "1px solid black",
                 borderRadius: "5px",
                 fontWeight: "bold",
+                color: "white",
+                backgroundColor: "#5dbea3",
+                letterSpacing: "2px",
               }}
             >
               ReactJS
@@ -58,9 +91,11 @@ const Singleplayer = () => {
             <button
               style={{
                 padding: "5px 10px",
-                border: "1px solid black",
                 borderRadius: "5px",
                 fontWeight: "bold",
+                color: "white",
+                backgroundColor: "#5dbea3",
+                letterSpacing: "2px",
               }}
             >
               ExpressJS
@@ -71,9 +106,11 @@ const Singleplayer = () => {
             <button
               style={{
                 padding: "5px 10px",
-                border: "1px solid black",
                 borderRadius: "5px",
                 fontWeight: "bold",
+                color: "white",
+                backgroundColor: "#5dbea3",
+                letterSpacing: "2px",
               }}
             >
               NodeJS
@@ -81,9 +118,11 @@ const Singleplayer = () => {
             <button
               style={{
                 padding: "5px 10px",
-                border: "1px solid black",
                 borderRadius: "5px",
                 fontWeight: "bold",
+                color: "white",
+                backgroundColor: "#5dbea3",
+                letterSpacing: "2px",
               }}
             >
               .net
@@ -94,14 +133,24 @@ const Singleplayer = () => {
         {/* ---------------- Leaderboard ----------------- */}
         <div
           style={{
-            // border: "1px solid black",
-            padding: "20px",
+            padding: "40px",
             margin: "10px",
             width: "90%",
             textAlign: "center",
+            backgroundColor: "greenyellow",
+            color: "black",
+            fontWeight: "bold",
           }}
         >
-          <h2 style={{ textDecoration: "underline" }}>LeaderBoard</h2>
+          <h2
+            style={{
+              textDecoration: "underline",
+              fontSize: "32px",
+              marginBottom: "15px",
+            }}
+          >
+            LeaderBoard
+          </h2>
           <br />
           <h3>1. Malik</h3>
           <h3>2. Pooja</h3>
