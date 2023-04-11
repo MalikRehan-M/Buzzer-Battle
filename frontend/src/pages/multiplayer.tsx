@@ -4,6 +4,7 @@ import { ProgressBar } from "react-progressbar-fancy";
 import Avatar from "react-avatar";
 import { io } from "socket.io-client";
 import axios from "axios";
+import toast from "react-simple-toasts";
 
 interface FormEvent extends React.FormEvent<HTMLFormElement> {
   preventDefault(): void;
@@ -23,29 +24,46 @@ interface Users {
   left: User[];
   right: User[];
 }
+interface Question {
+  id: number;
+  question: string;
+  options: {
+    a: string;
+    b: string;
+    c: string;
+    d: string;
+  };
+  answer: string;
+  difficulty: string;
+  theme: string;
+}
 
 const socket = io("http://localhost:4000");
 
-let index = 0;
+
 const Multiplayer = () => {
   let [users, setUsers] = useState<Users>({ left: [], right: [] });
-  let [quiz, setQuiz] = useState<any>({ index: 0 });
+  let [quiz, setQuiz] = useState<Question>();
   let [pos, setPos] = useState(false);
+  let [index,setIndex]=useState(0)
+  let [timer, setTimer] = useState("true");
+  let [time, setTime] = useState(4);
+
   let [red, setRed] = useState(100);
   let [blue, setBlue] = useState(100);
   const [name, setName] = useState<string | null>("");
   const [text, setText] = useState("");
   const [messages, setMessages] = useState<MessageList>([]);
 
-  const getData = async () => {
-    index++;
-    let data = await axios.get(
-      "https://weak-skillful-snowman.glitch.me/avengers"
-    );
-    let temp=data.data
-    await setQuiz({ ...data.data[0], index: 0 });
-    console.log(quiz);
-  };
+  useEffect(() => {
+    socket.on("nextQuestion", (question) => {
+      console.log(question)
+      setQuiz(question.question);
+      setIndex(question.index);
+      setTimer("")
+    });
+  }, []);
+
   useEffect(() => {
     let temp = prompt("Pick a name for yourself, and do pick a team");
     setName(temp);
@@ -89,7 +107,22 @@ const Multiplayer = () => {
           />
         </div>
         <div className="h-24">
-          <ReactCountdownClock alpha={1} seconds={10} color="cyan" size={130} />
+          <ReactCountdownClock
+            alpha={1}
+            seconds={time}
+            color="cyan"
+            size={130}
+            paused={timer}
+            pausedText="T"
+            onComplete={() => {
+              if (index >= 15) {
+                setTime(0);
+                return;
+              } else {
+                setTime((preTime) => preTime + 0.1);
+              }
+            }}
+          />
         </div>
         <div className="text-black w-4/12">
           <ProgressBar
@@ -108,7 +141,6 @@ const Multiplayer = () => {
             style={{ transform: "skew(-8deg)" }}
             className="text-xl w-1/2 py-2 px-4  rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
             onClick={() => {
-              getData();
               setPos(true);
               if (pos) return;
               socket.emit("name", {
@@ -142,38 +174,72 @@ const Multiplayer = () => {
             style={{ transform: "skew(-8deg)", borderRadius: "15px" }}
           >
             <p className="text-2xl">
-              <span>{"->"}</span> What is the name of the artificial
-              intelligence program created by Tony Stark that becomes self-aware
-              and turns against the Avengers in Avengers: Age of Ultron?
+              <span>{"->"}</span> {quiz?.question}
             </p>
             <div className="gap-2 grid grid-cols-2 mt-10">
-              
-                  <button
-                    type="submit"
-                    className="py-2 px-4 border text-xl rounded-md shadow-sm text-sm font-medium text-white hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500"
-                  >
-                  Chris Pratt
-                  </button>
-                  <button
-                    type="submit"
-                    className="py-2 px-4 border text-xl rounded-md shadow-sm text-sm font-medium text-white hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500"
-                  >
-                    Chris Evans
-                  </button>
-                  <button
-                    type="submit"
-                    className="py-2 px-4 border text-xl rounded-md shadow-sm text-sm font-medium text-white hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500"
-                  >
-                   Chris Hemsworth
-                  </button>
-                  <button
-                    type="submit"
-                    className="py-2 px-4 border text-xl rounded-md shadow-sm text-sm font-medium text-white hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500"
-                  >
-                    Chris Pine
-                  </button>
-
+              <button
+                onClick={() => {
+                  if ("a" === quiz?.answer) {
+                    toast("Hello, world!");
+                  } else {
+                    toast("not Hello, world!");
+                  }
+                }}
+                type="submit"
+                className="py-2 px-4 border text-xl rounded-md shadow-sm text-sm font-medium text-white hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+              >
+                {quiz?.options?.a}
+              </button>
+              <button
+                onClick={() => {
+                  if ("b" === quiz?.answer) {
+                    toast("Hello, world!");
+                  } else {
+                    toast("not Hello, world!");
+                  }
+                }}
+                type="submit"
+                className="py-2 px-4 border text-xl rounded-md shadow-sm text-sm font-medium text-white hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+              >
+                {quiz?.options?.b}
+              </button>
+              <button
+                onClick={() => {
+                  if ("c" === quiz?.answer) {
+                    toast("Hello, world!");
+                  } else {
+                    toast("not Hello, world!");
+                  }
+                }}
+                type="submit"
+                className="py-2 px-4 border text-xl rounded-md shadow-sm text-sm font-medium text-white hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+              >
+                {quiz?.options?.c}
+              </button>
+              <button
+                onClick={() => {
+                  if ("d" === quiz?.answer) {
+                    toast("Hello, world!");
+                  } else {
+                    toast("not Hello, world!");
+                  }
+                }}
+                type="submit"
+                className="py-2 px-4 border text-xl rounded-md shadow-sm text-sm font-medium text-white hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+              >
+                {quiz?.options?.d}
+              </button>
             </div>
+            <button
+              onClick={() => {
+                setTimer("");
+                let t=""
+                socket.emit("start",t);
+              }}
+              className="ml-60 mt-14 py-2 px-4 w-1/3 border text-xl bg-indigo-700 rounded-md shadow-sm text-sm font-medium text-white hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+            >
+              Start
+            </button>
           </div>
 
           <button
@@ -188,6 +254,7 @@ const Multiplayer = () => {
             <span
               className=" text-4xl truncate"
               style={{
+                paddingTop: "8px",
                 background: "linear-gradient(#ede801, #fefb72)",
                 transform: "skew(-8deg)",
                 color: "#343F65",
@@ -195,7 +262,7 @@ const Multiplayer = () => {
                 width: "160px",
               }}
             >
-              Tap !
+              Buzz !
             </span>
           </button>
         </div>
@@ -205,7 +272,6 @@ const Multiplayer = () => {
             style={{ transform: "skew(-8deg)" }}
             className="text-xl w-1/2 py-2 px-4 rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-red-500"
             onClick={() => {
-              getData();
               setPos(true);
               if (pos) return;
               socket.emit("name", {
